@@ -395,23 +395,24 @@
 												<!-- Button -->									
 												<div  class="block2-btn-addcart w-size1 trans-0-4" data-appear="zoomIn">
 												<!-- Button -->
-												<a href="https://www.amazon.in/dp/B08CDPCVDW" target="_blank" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
-													Buy Now
-												</a>
+												<!--<a href="https://www.amazon.in/dp/B08CDPCVDW" target="_blank" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">													
+												</a>-->
 												</div>
 											</div>
 										</div>
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="https://www.amazon.in/dp/B08CDPCVDW" class="block2-name dis-block s-text3 p-b-5">
-											MICRO:BIT GO
-										</a>
-
-										<span class="block2-price m-text6 p-r-5">
-											₹1900
-										</span>
+										MICRO:BIT GO ₹2190 <br>
+										<button
+										style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+										id="checkout-button-price_1HaiTOA9JLcSHwWguwXWPxnI"
+										role="link"
+										type="button">
+										 Buy Now
+										</button>										
 									</div>
+														
 								</div>
 							</div>
 						
@@ -430,9 +431,9 @@
 
 											<div  class="block2-btn-addcart w-size1 trans-0-4" data-appear="zoomIn">
 												<!-- Button -->
-												<a href="https://www.amazon.in/gp/product/B0891X11M4" target="_blank" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+												<!--<a href="https://www.amazon.in/gp/product/B0891X11M4" target="_blank" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
 													Buy Now
-												</a>
+												</a>-->
 											</div>
 											<!--<div class="block2-btn-addcart w-size1 trans-0-4">													
 												
@@ -444,13 +445,14 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="https://www.amazon.in/gp/product/B0891X11M4" target="_blank" class="block2-name dis-block s-text3 p-b-5">
-											MICRO:BIT WEAR:IT
-										</a>
-
-										<span class="block2-price m-text6 p-r-5">
-											₹3200
-										</span>
+										MICRO:BIT WEAR:IT ₹3180
+										<button
+										style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+										id="checkout-button-price_1HaiTOA9JLcSHwWguwXWPxnI"
+										role="link"
+										type="button">
+										 Buy Now
+										</button>										
 									</div>
 								</div>
 							</div>
@@ -476,11 +478,11 @@
 
 									<div class="block2-txt p-t-20">
 										<a href="#kits" class="block2-name dis-block s-text3 p-b-5">
-											MICRO:BIT Club
+											MICRO:BIT Club ₹16000
 										</a>
 
 										<span class="block2-price m-text6 p-r-5">
-											₹16000
+											Out of Stock 
 										</span>
 									</div>
 								</div>
@@ -507,11 +509,11 @@
 
 									<div class="block2-txt p-t-20">
 										<a href="#kits" class="block2-name dis-block s-text3 p-b-5">
-											MICRO:BIT board
+											MICRO:BIT board ₹1500
 										</a>
 
 										<span class="block2-price m-text6 p-r-5">
-											₹1500
+											Out of Stock  
 										</span>
 									</div>
 								</div>
@@ -1606,6 +1608,45 @@
 
 	  gtag('config', 'UA-118761839-9');
 	</script>
+	
+<!-- Load Stripe.js on your website. -->
+<script src="https://js.stripe.com/v3"></script>
+
+<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+
+
+<div id="error-message"></div>
+
+<script>
+(function() {
+  var stripe = Stripe('pk_live_51HPViNA9JLcSHwWg9AMsdb3WUoWQGDIi9xidN8PyTm6MXdL3gV6DVJSTdJ4z8IlJkE2sD2hK5wkeecnCFOgSBaap00BjlZUECJ');
+
+  var checkoutButton = document.getElementById('checkout-button-price_1HaiTOA9JLcSHwWguwXWPxnI');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1HaiTOA9JLcSHwWguwXWPxnI', quantity: 1}],
+      mode: 'payment',
+      // Do not rely on the redirect to the successUrl for fulfilling
+      // purchases, customers may not always reach the success_url after
+      // a successful payment.
+      // Instead use one of the strategies described in
+      // https://stripe.com/docs/payments/checkout/fulfill-orders
+      successUrl: 'https://stemsmartlabs.com/success',
+      cancelUrl: 'https://stemsmartlabs.com/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+</script>	
 
 </body>
 </html>
