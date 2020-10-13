@@ -403,14 +403,15 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										MICRO:BIT GO ₹2190 <br>
+										MICRO:BIT GO ₹1500 <br>
 										<button
-										style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-										id="checkout-button-price_1HaiTOA9JLcSHwWguwXWPxnI"
-										role="link"
-										type="button">
-										 Buy Now
-										</button>										
+										  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+										  id="checkout-button-price_1Hb5eWA9JLcSHwWgzM9XXPqF"
+										  role="link"
+										  type="button"
+										>
+										  Buy Now
+										</button>									
 									</div>
 														
 								</div>
@@ -447,11 +448,11 @@
 									<div class="block2-txt p-t-20">
 										MICRO:BIT WEAR:IT ₹3180
 										<button
-										style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-										id="checkout-button-price_1HaiTOA9JLcSHwWguwXWPxnI"
-										role="link"
-										type="button">
-										 Buy Now
+										  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+										  id="checkout-button-price_1Hb5UCA9JLcSHwWgQxr2NNXb"
+										  role="link"
+										  type="button">
+										  Buy Now
 										</button>										
 									</div>
 								</div>
@@ -1335,9 +1336,9 @@
 									Arcade Journey
 								</a>
 							</h4>
-							<span class="s-text7">Using Brianpad Game development board</span>
+							<span class="s-text7">Using Brainpad Game development board</span>
 							<p class="s-text8 p-t-16">
-								Inventor Space provides you simulation\modelling this helps you understand how the blocks works without the actual hardware.
+								Inventor Space provides you simulation\modeling this helps you understand how the blocks works without the actual hardware.
 							</p>
 						</div>
 					</div>
@@ -1610,10 +1611,10 @@
 	</script>
 	
 <!-- Load Stripe.js on your website. -->
+<!-- Load Stripe.js on your website. -->
 <script src="https://js.stripe.com/v3"></script>
 
 <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
-
 
 <div id="error-message"></div>
 
@@ -1621,20 +1622,24 @@
 (function() {
   var stripe = Stripe('pk_live_51HPViNA9JLcSHwWg9AMsdb3WUoWQGDIi9xidN8PyTm6MXdL3gV6DVJSTdJ4z8IlJkE2sD2hK5wkeecnCFOgSBaap00BjlZUECJ');
 
-  var checkoutButton = document.getElementById('checkout-button-price_1HaiTOA9JLcSHwWguwXWPxnI');
+  var checkoutButton = document.getElementById('checkout-button-price_1Hb5eWA9JLcSHwWgzM9XXPqF');
   checkoutButton.addEventListener('click', function () {
     // When the customer clicks on the button, redirect
     // them to Checkout.
     stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1HaiTOA9JLcSHwWguwXWPxnI', quantity: 1}],
+      lineItems: [{price: 'price_1Hb5eWA9JLcSHwWgzM9XXPqF', quantity: 1}],
       mode: 'payment',
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
       // a successful payment.
       // Instead use one of the strategies described in
       // https://stripe.com/docs/payments/checkout/fulfill-orders
-      successUrl: 'https://stemsmartlabs.com/success',
-      cancelUrl: 'https://stemsmartlabs.com/canceled',
+      successUrl: 'https://stemsmartlabs.com/store/success.html',
+      cancelUrl: 'https://stemsmartlabs.com/store/canceled.html',
+	  billingAddressCollection: 'required',
+	  shippingAddressCollection: {
+		allowedCountries: ['IN'],
+	  },	  
     })
     .then(function (result) {
       if (result.error) {
@@ -1646,7 +1651,51 @@
     });
   });
 })();
-</script>	
+</script>
+
+
+<!-- Load Stripe.js on your website. -->
+<script src="https://js.stripe.com/v3"></script>
+
+<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+
+
+<div id="error-message"></div>
+
+<script>
+(function() {
+  var stripe = Stripe('pk_live_51HPViNA9JLcSHwWg9AMsdb3WUoWQGDIi9xidN8PyTm6MXdL3gV6DVJSTdJ4z8IlJkE2sD2hK5wkeecnCFOgSBaap00BjlZUECJ');
+
+  var checkoutButton = document.getElementById('checkout-button-price_1Hb5UCA9JLcSHwWgQxr2NNXb');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1Hb5UCA9JLcSHwWgQxr2NNXb', quantity: 1}],
+      mode: 'payment',
+      // Do not rely on the redirect to the successUrl for fulfilling
+      // purchases, customers may not always reach the success_url after
+      // a successful payment.
+      // Instead use one of the strategies described in
+      // https://stripe.com/docs/payments/checkout/fulfill-orders
+      successUrl: 'https://stemsmartlabs.com/store/success.html',
+      cancelUrl: 'https://stemsmartlabs.com/store/canceled.html',
+	  billingAddressCollection: 'required',
+	  shippingAddressCollection: {
+		allowedCountries: ['IN'],
+	  },	  
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
