@@ -1638,7 +1638,7 @@ li.sale-noti > a {
 ///////////////////////////////////////////////////////////
 */
 .block2-labelsale::before,
-.block2-labelnew::before 
+.block2-labelnew::before
 {
   z-index: 100;
   font-family: Montserrat-Regular;
@@ -1659,6 +1659,28 @@ li.sale-noti > a {
   left: 12px;
 }
 
+.block2-labelpopular::before,
+.block2-labelbestvalue::before
+{
+  z-index: 100;
+  font-family: Montserrat-Regular;
+  font-size: 12px;
+  color: white;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 22px;
+  border-radius: 11px;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
 .block2-labelsale::before {
   background-color: #e65540;
   content: 'Sale';
@@ -1667,6 +1689,16 @@ li.sale-noti > a {
 .block2-labelnew::before {
   background-color: #66a8a6;
   content: 'New';
+}
+
+.block2-labelpopular::before {
+  background-color: #66a8a6;
+  content: 'Most Popular';
+}
+
+.block2-labelbestvalue::before {
+  background-color: orange;
+  content: 'Best Value';
 }
 
 /* ------------------------------------ */
@@ -2326,6 +2358,78 @@ body {padding-right: 0px !important;}
 }
 
 .close-mo-video-01:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+
+#modal-video-02 {
+  background-color: rgba(0,0,0,0.8);
+  z-index: 1350;
+  
+}
+
+#modal-video-02 .modal-dialog {
+  max-width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.wrap-video-mo-02 {
+  width: 854px;
+  height: auto;
+  position: relative;
+  margin: 15px;
+}
+
+.video-mo-02 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transition: all 2s;
+  -o-transition: all 2s;
+  -moz-transition: all 2s;
+  transition: all 2s;
+}
+
+.video-mo-02 iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.close-mo-video-02 {
+  font-size: 50px;
+  color: white;
+  opacity: 0.6;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 1250;
+  width: 60px;
+  height: 60px;
+  top: 0;
+  right: 0;
+}
+
+.close-mo-video-02:hover {
   cursor: pointer;
   opacity: 1;
 }

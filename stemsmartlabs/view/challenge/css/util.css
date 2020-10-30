@@ -2348,7 +2348,7 @@
 */
 .bgwhite {background-color: white;}
 .bgblack {background-color: black;}
-.bgdeepskyblue {background-color: orangered;}
+.bgdeepskyblue {background-color: #6772E5;}
 
 
 
@@ -3027,7 +3027,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 	font-family: Montserrat-Bold;
 	font-size: 15px;
 	color: #111111;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 }
 
 .s-text3 {
@@ -3189,7 +3189,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 	font-family: Montserrat-Regular;
 	font-size: 16px;
 	color: #333333;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 }
 
 .m-text3 {
@@ -3212,7 +3212,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 	font-size: 30px;
 	color: #222222;
 	line-height: 1.2;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 }
 
 .m-text6 {
