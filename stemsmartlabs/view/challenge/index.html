@@ -75,7 +75,7 @@
 
 	<!-- top noti -->
 	<div class="flex-c-m size22 bg0 s-text21 pos-relative">
-		Prepare the Students for Global Goals Challenge!
+		Prepare the Students for the Global Goals Challenge!
 		<button class="flex-c-m pos2 size23 colorwhite eff3 trans-0-4 btn-romove-top-noti">
 			<i class="fa fa-remove fs-13" aria-hidden="true"></i>
 		</button>
@@ -196,17 +196,11 @@
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="index.html">Home</a>
-						<ul class="sub-menu">
-							<li><a href="index.html">Store</a></li>
-							<li><a href="https://stemsmartlabs.com/virtualclasses/">Virtual Classes</a></li>
-							<li><a href="https://stemsmartlabs.com/">STEM Smart Labs</a></li>
-						</ul>
-						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
+						<a href="#home">Home</a>
 					</li>
 					
 					<li class="item-menu-mobile">
-						<a href="#ecosystem">Ecosystem</a>
+						<a href="#challenge">Challenge</a>
 					</li>
 
 					<li class="item-menu-mobile">
@@ -365,12 +359,12 @@
 						<p class="t-center">
 						<button
 						  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-						  id="checkout-button-price_1HhHYpA9JLcSHwWg9NZT4vrQ"
+						  id="checkout-button-price_1HgTjiA9JLcSHwWgyD1Z6on7"
 						  role="link"
 						  type="button"
 						>
 						  Join Now
-						</button>						
+						</button>												
 						</p>					
 				</div>
 
@@ -383,7 +377,7 @@
 						<p class="t-center">
 							<button
 							  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-							  id="checkout-button-price_1HgTjiA9JLcSHwWgyD1Z6on7"
+							  id="checkout-button-price_1HgTpAA9JLcSHwWgaImjTfpp"
 							  role="link"
 							  type="button"
 							>
@@ -881,22 +875,24 @@
   });
 })();
 </script>
-	
+
+
 <!-- Load Stripe.js on your website. -->
 <script src="https://js.stripe.com/v3"></script>
 
+<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
 <div id="error-message"></div>
 
 <script>
 (function() {
   var stripe = Stripe('pk_live_51HPViNA9JLcSHwWg9AMsdb3WUoWQGDIi9xidN8PyTm6MXdL3gV6DVJSTdJ4z8IlJkE2sD2hK5wkeecnCFOgSBaap00BjlZUECJ');
 
-  var checkoutButton = document.getElementById('checkout-button-price_1HhHYpA9JLcSHwWg9NZT4vrQ');
+  var checkoutButton = document.getElementById('checkout-button-price_1HgTjiA9JLcSHwWgyD1Z6on7');
   checkoutButton.addEventListener('click', function () {
     // When the customer clicks on the button, redirect
     // them to Checkout.
     stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1HhHYpA9JLcSHwWg9NZT4vrQ', quantity: 1}],
+      lineItems: [{price: 'price_1HgTjiA9JLcSHwWgyD1Z6on7', quantity: 1}],
       mode: 'payment',
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
@@ -920,8 +916,8 @@
     });
   });
 })();
-</script>	
-
+</script>
+	
 
 <!-- Load Stripe.js on your website. -->
 <script src="https://js.stripe.com/v3"></script>
@@ -933,12 +929,12 @@
 (function() {
   var stripe = Stripe('pk_live_51HPViNA9JLcSHwWg9AMsdb3WUoWQGDIi9xidN8PyTm6MXdL3gV6DVJSTdJ4z8IlJkE2sD2hK5wkeecnCFOgSBaap00BjlZUECJ');
 
-  var checkoutButton = document.getElementById('checkout-button-price_1HgTjiA9JLcSHwWgyD1Z6on7');
+  var checkoutButton = document.getElementById('checkout-button-price_1HgTpAA9JLcSHwWgaImjTfpp');
   checkoutButton.addEventListener('click', function () {
     // When the customer clicks on the button, redirect
     // them to Checkout.
     stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1HgTjiA9JLcSHwWgyD1Z6on7', quantity: 1}],
+      lineItems: [{price: 'price_1HgTpAA9JLcSHwWgaImjTfpp', quantity: 1}],
       mode: 'payment',
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
