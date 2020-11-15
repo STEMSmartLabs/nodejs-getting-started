@@ -2349,6 +2349,7 @@
 .bgwhite {background-color: white;}
 .bgblack {background-color: black;}
 .bgdeepskyblue {background-color: #6772E5;}
+.bgOrange {background-color: #E65540;}
 
 
 
@@ -3422,6 +3423,15 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 	line-height: 1.2;
 	letter-spacing: 3px;
 	text-transform: uppercase;
+}
+
+.xl-text4 {
+	font-family: Poppins-Black;
+	font-size: 40px;
+	color: OrangeRed;
+	line-height: 1.2;
+	letter-spacing: 1px;
+/*	text-transform: uppercase;*/
 }
 
 
