@@ -403,10 +403,10 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										MICRO:BIT GO ₹1500 <br>
+										MICRO:BIT GO ₹1683 <br> <br> 
 										<button
 										  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-										  id="checkout-button-price_1Hb5eWA9JLcSHwWgzM9XXPqF"
+										  id="checkout-button-price_1HyeVCA9JLcSHwWgNBa2WdPA"
 										  role="link"
 										  type="button"
 										>
@@ -421,7 +421,7 @@
 							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
 								<!-- Block2 -->
 								<div class="block2">
-									<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+									<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labeloffer">
 										<img src="images/products/1.jpg" alt="IMG-PRODUCT">
 
 										<div class="block2-overlay trans-0-4">
@@ -446,10 +446,10 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										MICRO:BIT WEAR:IT ₹3180
+										MICRO:BIT WEAR:IT ₹2597 <br><span class="s-text7">Get Live MasterClass worth ₹1000</span><br>
 										<button
 										  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-										  id="checkout-button-price_1Hb5UCA9JLcSHwWgQxr2NNXb"
+										  id="checkout-button-price_1HyeQcA9JLcSHwWg8NmII08a"
 										  role="link"
 										  type="button">
 										  Buy Now
@@ -1622,29 +1622,31 @@
 (function() {
   var stripe = Stripe('pk_live_51HPViNA9JLcSHwWg9AMsdb3WUoWQGDIi9xidN8PyTm6MXdL3gV6DVJSTdJ4z8IlJkE2sD2hK5wkeecnCFOgSBaap00BjlZUECJ');
 
-  var checkoutButton = document.getElementById('checkout-button-price_1Hb5eWA9JLcSHwWgzM9XXPqF');
+  var checkoutButton = document.getElementById('checkout-button-price_1HyeVCA9JLcSHwWgNBa2WdPA');
   checkoutButton.addEventListener('click', function () {
-    // When the customer clicks on the button, redirect
-    // them to Checkout.
+    /*
+     * When the customer clicks on the button, redirect
+     * them to Checkout.
+     */
     stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1Hb5eWA9JLcSHwWgzM9XXPqF', quantity: 1}],
+      lineItems: [{price: 'price_1HyeVCA9JLcSHwWgNBa2WdPA', quantity: 1}],
       mode: 'payment',
-      // Do not rely on the redirect to the successUrl for fulfilling
-      // purchases, customers may not always reach the success_url after
-      // a successful payment.
-      // Instead use one of the strategies described in
-      // https://stripe.com/docs/payments/checkout/fulfill-orders
-      successUrl: 'https://stemsmartlabs.com/store/success.html',
-      cancelUrl: 'https://stemsmartlabs.com/store/canceled.html',
-	  billingAddressCollection: 'required',
-	  shippingAddressCollection: {
-		allowedCountries: ['IN'],
-	  },	  
+      /*
+       * Do not rely on the redirect to the successUrl for fulfilling
+       * purchases, customers may not always reach the success_url after
+       * a successful payment.
+       * Instead use one of the strategies described in
+       * https://stripe.com/docs/payments/checkout/fulfill-orders
+       */
+      successUrl: 'https://stemsmartlabs.com/success',
+      cancelUrl: 'https://stemsmartlabs.com/canceled',
     })
     .then(function (result) {
       if (result.error) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer.
+        /*
+         * If `redirectToCheckout` fails due to a browser or network
+         * error, display the localized error message to your customer.
+         */
         var displayError = document.getElementById('error-message');
         displayError.textContent = result.error.message;
       }
@@ -1654,41 +1656,42 @@
 </script>
 
 
+
 <!-- Load Stripe.js on your website. -->
 <script src="https://js.stripe.com/v3"></script>
 
 <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
 
 
-<div id="error-message"></div>
-
 <script>
 (function() {
   var stripe = Stripe('pk_live_51HPViNA9JLcSHwWg9AMsdb3WUoWQGDIi9xidN8PyTm6MXdL3gV6DVJSTdJ4z8IlJkE2sD2hK5wkeecnCFOgSBaap00BjlZUECJ');
 
-  var checkoutButton = document.getElementById('checkout-button-price_1Hb5UCA9JLcSHwWgQxr2NNXb');
+  var checkoutButton = document.getElementById('checkout-button-price_1HyeQcA9JLcSHwWg8NmII08a');
   checkoutButton.addEventListener('click', function () {
-    // When the customer clicks on the button, redirect
-    // them to Checkout.
+    /*
+     * When the customer clicks on the button, redirect
+     * them to Checkout.
+     */
     stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1Hb5UCA9JLcSHwWgQxr2NNXb', quantity: 1}],
+      lineItems: [{price: 'price_1HyeQcA9JLcSHwWg8NmII08a', quantity: 1}],
       mode: 'payment',
-      // Do not rely on the redirect to the successUrl for fulfilling
-      // purchases, customers may not always reach the success_url after
-      // a successful payment.
-      // Instead use one of the strategies described in
-      // https://stripe.com/docs/payments/checkout/fulfill-orders
-      successUrl: 'https://stemsmartlabs.com/store/success.html',
-      cancelUrl: 'https://stemsmartlabs.com/store/canceled.html',
-	  billingAddressCollection: 'required',
-	  shippingAddressCollection: {
-		allowedCountries: ['IN'],
-	  },	  
+      /*
+       * Do not rely on the redirect to the successUrl for fulfilling
+       * purchases, customers may not always reach the success_url after
+       * a successful payment.
+       * Instead use one of the strategies described in
+       * https://stripe.com/docs/payments/checkout/fulfill-orders
+       */
+      successUrl: 'https://stemsmartlabs.com/success',
+      cancelUrl: 'https://stemsmartlabs.com/canceled',
     })
     .then(function (result) {
       if (result.error) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer.
+        /*
+         * If `redirectToCheckout` fails due to a browser or network
+         * error, display the localized error message to your customer.
+         */
         var displayError = document.getElementById('error-message');
         displayError.textContent = result.error.message;
       }
