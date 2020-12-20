@@ -1638,8 +1638,12 @@
        * Instead use one of the strategies described in
        * https://stripe.com/docs/payments/checkout/fulfill-orders
        */
-      successUrl: 'https://stemsmartlabs.com/success',
-      cancelUrl: 'https://stemsmartlabs.com/canceled',
+      successUrl: 'https://stemsmartlabs.com/store/success.html',
+      cancelUrl: 'https://stemsmartlabs.com/store/canceled.html',
+	  billingAddressCollection: 'required',
+	  shippingAddressCollection: {
+		allowedCountries: ['IN'],
+	  },
     })
     .then(function (result) {
       if (result.error) {
@@ -1683,8 +1687,12 @@
        * Instead use one of the strategies described in
        * https://stripe.com/docs/payments/checkout/fulfill-orders
        */
-      successUrl: 'https://stemsmartlabs.com/success',
-      cancelUrl: 'https://stemsmartlabs.com/canceled',
+      successUrl: 'https://stemsmartlabs.com/store/success.html',
+      cancelUrl: 'https://stemsmartlabs.com/store/canceled.html',
+	  billingAddressCollection: 'required',
+	  shippingAddressCollection: {
+		allowedCountries: ['IN'],
+	  },
     })
     .then(function (result) {
       if (result.error) {
