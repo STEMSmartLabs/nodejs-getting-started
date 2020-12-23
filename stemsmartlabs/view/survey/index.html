@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+</head>
+<body>
+<script src="https://unpkg.com/tripetto-runner-foundation"></script>
+<script src="https://unpkg.com/tripetto-runner-chat"></script>
+<script src="https://unpkg.com/tripetto-services"></script>
+<script>
+var tripetto = TripettoServices.init({ token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiRHZBa01vQUNjZGNIL2FpaHpZOFZtMjdMYXpRMEJXa1ptZE0rSTk3V2pJaz0iLCJkZWZpbml0aW9uIjoiSDlMUUZUaThBNHkvckZDcUswMXVuK0RPOFJlRFVRTGRxZGVuc2VCN3FIQT0iLCJ0eXBlIjoiY29sbGVjdCJ9.dquPw5r25b8lhZzxAWw3K3-xL949XHRLlYTbmkmstkY" });
+
+TripettoChat.run({
+    element: document.body,
+    definition: tripetto.definition,
+    styles: tripetto.styles,
+    l10n: tripetto.l10n,
+    locale: tripetto.locale,
+    translations: tripetto.translations,
+    attachments: tripetto.attachments,
+    onSubmit: tripetto.onSubmit
+});
+</script>
+</body>
+</html>
