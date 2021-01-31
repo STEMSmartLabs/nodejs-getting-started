@@ -342,7 +342,7 @@
 						<p class="t-center">
 						<button
 						  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-						  id="checkout-button-price_1Hcu4lA9JLcSHwWgfKxaT97b"
+						  id="checkout-button-price_1I8RHEA9JLcSHwWgcxxL4h42"
 						  role="link"
 						  type="button"
 						>
@@ -359,7 +359,7 @@
 						<p class="t-center">
 						<button
 						  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-						  id="checkout-button-price_1HgTjiA9JLcSHwWgyD1Z6on7"
+						  id="checkout-button-price_1I8RLxA9JLcSHwWgl3OX8MuN"
 						  role="link"
 						  type="button"
 						>
@@ -377,7 +377,7 @@
 						<p class="t-center">
 							<button
 							  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-							  id="checkout-button-price_1HgTpAA9JLcSHwWgaImjTfpp"
+							  id="checkout-button-price_1I8RNgA9JLcSHwWgBpmOLlt0"
 							  role="link"
 							  type="button"
 							>
@@ -747,7 +747,7 @@
 				</h4>
 				<ul>
 					<li class="p-b-9 s-text7">
-						Duration of each session will be 60 minutes. Subscriptions can be cancelled anytime, We have no questions asked refund policy. There are zero cancellation charges. Deduction will be made only for the classes attended and any Microbit kit if provided. 
+						Duration of each session will be 60 minutes. Subscriptions can be cancelled anytime, We have no questions asked refund policy. There are zero cancellation charges. Deduction will be made only for the classes attended. 
 					</li>
 				</ul>			
 			</div>			
@@ -829,150 +829,136 @@
 	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+	
+<!-- Load Stripe.js on your website. -->
+	<script src="https://js.stripe.com/v3"></script>
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118761839-9"></script>
+<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+
+
+	<div id="error-message"></div>
+
+
+<script>
+(function() {
+  var stripe = Stripe('pk_live_51HPViNA9JLcSHwWg9AMsdb3WUoWQGDIi9xidN8PyTm6MXdL3gV6DVJSTdJ4z8IlJkE2sD2hK5wkeecnCFOgSBaap00BjlZUECJ');
+
+  var checkoutButton = document.getElementById('checkout-button-price_1I8RHEA9JLcSHwWgcxxL4h42');
+  checkoutButton.addEventListener('click', function () {
+    /*
+     * When the customer clicks on the button, redirect
+     * them to Checkout.
+     */
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1I8RHEA9JLcSHwWgcxxL4h42', quantity: 1}],
+      mode: 'payment',
+      /*
+       * Do not rely on the redirect to the successUrl for fulfilling
+       * purchases, customers may not always reach the success_url after
+       * a successful payment.
+       * Instead use one of the strategies described in
+       * https://stripe.com/docs/payments/checkout/fulfill-orders
+       */
+      successUrl: 'https://stemsmartlabs.com/success',
+      cancelUrl: 'https://stemsmartlabs.com/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        /*
+         * If `redirectToCheckout` fails due to a browser or network
+         * error, display the localized error message to your customer.
+         */
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+</script>
+
+<script>
+(function() {
+  var stripe = Stripe('pk_live_51HPViNA9JLcSHwWg9AMsdb3WUoWQGDIi9xidN8PyTm6MXdL3gV6DVJSTdJ4z8IlJkE2sD2hK5wkeecnCFOgSBaap00BjlZUECJ');
+
+  var checkoutButton = document.getElementById('checkout-button-price_1I8RLxA9JLcSHwWgl3OX8MuN');
+  checkoutButton.addEventListener('click', function () {
+    /*
+     * When the customer clicks on the button, redirect
+     * them to Checkout.
+     */
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1I8RLxA9JLcSHwWgl3OX8MuN', quantity: 1}],
+      mode: 'payment',
+      /*
+       * Do not rely on the redirect to the successUrl for fulfilling
+       * purchases, customers may not always reach the success_url after
+       * a successful payment.
+       * Instead use one of the strategies described in
+       * https://stripe.com/docs/payments/checkout/fulfill-orders
+       */
+      successUrl: 'https://stemsmartlabs.com/success',
+      cancelUrl: 'https://stemsmartlabs.com/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        /*
+         * If `redirectToCheckout` fails due to a browser or network
+         * error, display the localized error message to your customer.
+         */
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+</script>
+
+
+<script>
+(function() {
+  var stripe = Stripe('pk_live_51HPViNA9JLcSHwWg9AMsdb3WUoWQGDIi9xidN8PyTm6MXdL3gV6DVJSTdJ4z8IlJkE2sD2hK5wkeecnCFOgSBaap00BjlZUECJ');
+
+  var checkoutButton = document.getElementById('checkout-button-price_1I8RNgA9JLcSHwWgBpmOLlt0');
+  checkoutButton.addEventListener('click', function () {
+    /*
+     * When the customer clicks on the button, redirect
+     * them to Checkout.
+     */
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1I8RNgA9JLcSHwWgBpmOLlt0', quantity: 1}],
+      mode: 'payment',
+      /*
+       * Do not rely on the redirect to the successUrl for fulfilling
+       * purchases, customers may not always reach the success_url after
+       * a successful payment.
+       * Instead use one of the strategies described in
+       * https://stripe.com/docs/payments/checkout/fulfill-orders
+       */
+      successUrl: 'https://stemsmartlabs.com/success',
+      cancelUrl: 'https://stemsmartlabs.com/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        /*
+         * If `redirectToCheckout` fails due to a browser or network
+         * error, display the localized error message to your customer.
+         */
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118761839-2"></script>
 	<script>
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
 	  gtag('js', new Date());
 
-	  gtag('config', 'UA-118761839-9');
+	  gtag('config', 'UA-118761839-2');
 	</script>
-	
-<!-- Load Stripe.js on your website. -->
-<script src="https://js.stripe.com/v3"></script>
-
-<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
-
-
-<div id="error-message"></div>
-
-<script>
-(function() {
-  var stripe = Stripe('pk_live_51HPViNA9JLcSHwWg9AMsdb3WUoWQGDIi9xidN8PyTm6MXdL3gV6DVJSTdJ4z8IlJkE2sD2hK5wkeecnCFOgSBaap00BjlZUECJ');
-
-  var checkoutButton = document.getElementById('checkout-button-price_1Hcu4lA9JLcSHwWgfKxaT97b');
-  checkoutButton.addEventListener('click', function () {
-    // When the customer clicks on the button, redirect
-    // them to Checkout.
-    stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1Hcu4lA9JLcSHwWgfKxaT97b', quantity: 1}],
-      mode: 'payment',
-      // Do not rely on the redirect to the successUrl for fulfilling
-      // purchases, customers may not always reach the success_url after
-      // a successful payment.
-      // Instead use one of the strategies described in
-      // https://stripe.com/docs/payments/checkout/fulfill-orders
-      successUrl: 'https://stemsmartlabs.com/challenge/success.html',
-      cancelUrl: 'https://stemsmartlabs.com/challenge/canceled.html',
-	  billingAddressCollection: 'required',	  
-    })
-    .then(function (result) {
-      if (result.error) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer.
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-})();
-</script>
-
-
-<!-- Load Stripe.js on your website. -->
-<script src="https://js.stripe.com/v3"></script>
-
-<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
-<div id="error-message"></div>
-
-<script>
-(function() {
-  var stripe = Stripe('pk_live_51HPViNA9JLcSHwWg9AMsdb3WUoWQGDIi9xidN8PyTm6MXdL3gV6DVJSTdJ4z8IlJkE2sD2hK5wkeecnCFOgSBaap00BjlZUECJ');
-
-  var checkoutButton = document.getElementById('checkout-button-price_1HgTjiA9JLcSHwWgyD1Z6on7');
-  checkoutButton.addEventListener('click', function () {
-    // When the customer clicks on the button, redirect
-    // them to Checkout.
-    stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1HgTjiA9JLcSHwWgyD1Z6on7', quantity: 1}],
-      mode: 'payment',
-      // Do not rely on the redirect to the successUrl for fulfilling
-      // purchases, customers may not always reach the success_url after
-      // a successful payment.
-      // Instead use one of the strategies described in
-      // https://stripe.com/docs/payments/checkout/fulfill-orders
-      successUrl: 'https://stemsmartlabs.com/challenge/success.html',
-      cancelUrl: 'https://stemsmartlabs.com/challenge/canceled.html',
-	  billingAddressCollection: 'required',	
-	  shippingAddressCollection: {
-		allowedCountries: ['US'],
-	  },	  
-    })
-    .then(function (result) {
-      if (result.error) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer.
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-})();
-</script>
-	
-
-<!-- Load Stripe.js on your website. -->
-<script src="https://js.stripe.com/v3"></script>
-
-<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
-<div id="error-message"></div>
-
-<script>
-(function() {
-  var stripe = Stripe('pk_live_51HPViNA9JLcSHwWg9AMsdb3WUoWQGDIi9xidN8PyTm6MXdL3gV6DVJSTdJ4z8IlJkE2sD2hK5wkeecnCFOgSBaap00BjlZUECJ');
-
-  var checkoutButton = document.getElementById('checkout-button-price_1HgTpAA9JLcSHwWgaImjTfpp');
-  checkoutButton.addEventListener('click', function () {
-    // When the customer clicks on the button, redirect
-    // them to Checkout.
-    stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1HgTpAA9JLcSHwWgaImjTfpp', quantity: 1}],
-      mode: 'payment',
-      // Do not rely on the redirect to the successUrl for fulfilling
-      // purchases, customers may not always reach the success_url after
-      // a successful payment.
-      // Instead use one of the strategies described in
-      // https://stripe.com/docs/payments/checkout/fulfill-orders
-      successUrl: 'https://stemsmartlabs.com/challenge/success.html',
-      cancelUrl: 'https://stemsmartlabs.com/challenge/canceled.html',
-	  billingAddressCollection: 'required',	
-	  shippingAddressCollection: {
-		allowedCountries: ['US'],
-	  },	  
-    })
-    .then(function (result) {
-      if (result.error) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer.
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-})();
-</script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118761839-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-118761839-2');
-</script>
 
 
 </body>
