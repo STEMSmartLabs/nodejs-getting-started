@@ -404,14 +404,11 @@
 
 									<div class="block2-txt p-t-20">
 										MICRO:BIT GO ₹1683 <br> <br> 
-										<button
-										  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-										  id="checkout-button-price_1HyeVCA9JLcSHwWgNBa2WdPA"
-										  role="link"
-										  type="button"
-										>
-										  Buy Now
-										</button>									
+										<div  class=" w-size1 trans-0-4" data-appear="zoomIn">
+											<div class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4 ">
+												Out of Stock
+											</div>
+										</div>
 									</div>
 														
 								</div>
@@ -446,10 +443,10 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										MICRO:BIT WEAR:IT ₹2597 <br><span class="s-text7">Get Live MasterClass worth ₹1000</span><br>
+										MICRO:BIT WEAR:IT ₹3180 <br><br>
 										<button
 										  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-										  id="checkout-button-price_1HyeQcA9JLcSHwWg8NmII08a"
+										  id="checkout-button-price_1Hb5UCA9JLcSHwWgQxr2NNXb"
 										  role="link"
 										  type="button">
 										  Buy Now
@@ -1671,14 +1668,14 @@
 (function() {
   var stripe = Stripe('pk_live_51HPViNA9JLcSHwWg9AMsdb3WUoWQGDIi9xidN8PyTm6MXdL3gV6DVJSTdJ4z8IlJkE2sD2hK5wkeecnCFOgSBaap00BjlZUECJ');
 
-  var checkoutButton = document.getElementById('checkout-button-price_1HyeQcA9JLcSHwWg8NmII08a');
+  var checkoutButton = document.getElementById('checkout-button-price_1Hb5UCA9JLcSHwWgQxr2NNXb');
   checkoutButton.addEventListener('click', function () {
     /*
      * When the customer clicks on the button, redirect
      * them to Checkout.
      */
     stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1HyeQcA9JLcSHwWg8NmII08a', quantity: 1}],
+      lineItems: [{price: 'price_1Hb5UCA9JLcSHwWgQxr2NNXb', quantity: 1}],
       mode: 'payment',
       /*
        * Do not rely on the redirect to the successUrl for fulfilling
@@ -1687,12 +1684,8 @@
        * Instead use one of the strategies described in
        * https://stripe.com/docs/payments/checkout/fulfill-orders
        */
-      successUrl: 'https://stemsmartlabs.com/store/success.html',
-      cancelUrl: 'https://stemsmartlabs.com/store/canceled.html',
-	  billingAddressCollection: 'required',
-	  shippingAddressCollection: {
-		allowedCountries: ['IN'],
-	  },
+      successUrl: 'https://stemsmartlabs.com/success',
+      cancelUrl: 'https://stemsmartlabs.com/canceled',
     })
     .then(function (result) {
       if (result.error) {
@@ -1707,6 +1700,5 @@
   });
 })();
 </script>
-
 </body>
 </html>
