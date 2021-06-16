@@ -380,6 +380,40 @@
 						<div class="row">
 						
 							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+								<div class="block2">
+									<div class="block2-img wrap-pic-w of-hidden pos-relative">
+										<img src="images/products/6.jpg" alt="IMG-PRODUCT">
+
+										<div class="block2-overlay trans-0-4">
+											<a href="#kits" class="block2-btn-addwishlist hov-pointer trans-0-4">
+												<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+												<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+											</a>
+
+											<div  class=" w-size1 trans-0-4" data-appear="zoomIn">
+												<div class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4 ">												
+													Out of Stock
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="block2-txt p-t-20">
+										MICRO:BIT GO V2 ₹1949 <br> <br> 
+										<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+										<button
+										  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em;cursor:pointer"
+										  id="checkout-button-price_1J2d1lA9JLcSHwWgfjPNJRrW"
+										  role="link"
+										  type="button"
+										>
+										  Buy Now
+										</button>
+									</div>
+								</div>
+							</div> 
+						
+							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
 								<!-- Block2 -->
 								<div class="block2">
 									<div class="block2-img wrap-pic-w of-hidden pos-relative"><!-- block2-labelsale"> -->
@@ -475,47 +509,15 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="#kits" class="block2-name dis-block s-text3 p-b-5">
-											MICRO:BIT Club ₹16000
-										</a>
-
-										<span class="block2-price m-text6 p-r-5">
-											Out of Stock 
-										</span>
+											MICRO:BIT Club ₹16000 <br> <br>
+										<div  class=" w-size1 trans-0-4" data-appear="zoomIn">
+											<div class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4 ">
+												Out of Stock
+											</div>
+										</div>										
 									</div>
 								</div>
 							</div>
-
-							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
-								<div class="block2">
-									<div class="block2-img wrap-pic-w of-hidden pos-relative">
-										<img src="images/products/3.jpg" alt="IMG-PRODUCT">
-
-										<div class="block2-overlay trans-0-4">
-											<a href="#kits" class="block2-btn-addwishlist hov-pointer trans-0-4">
-												<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-												<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-											</a>
-
-											<div  class=" w-size1 trans-0-4" data-appear="zoomIn">
-												<div class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4 ">												
-													Out of Stock
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="block2-txt p-t-20">
-										<a href="#kits" class="block2-name dis-block s-text3 p-b-5">
-											MICRO:BIT board ₹1500
-										</a>
-
-										<span class="block2-price m-text6 p-r-5">
-											Out of Stock  
-										</span>
-									</div>
-								</div>
-							</div> 
 
 							<!--<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
 								<div class="block2">
@@ -1704,5 +1706,51 @@
   });
 })();
 </script>
+
+<script>
+(function() {
+  var stripe = Stripe('pk_live_51HPViNA9JLcSHwWg9AMsdb3WUoWQGDIi9xidN8PyTm6MXdL3gV6DVJSTdJ4z8IlJkE2sD2hK5wkeecnCFOgSBaap00BjlZUECJ');
+
+  var checkoutButton = document.getElementById('checkout-button-price_1J2d1lA9JLcSHwWgfjPNJRrW');
+  checkoutButton.addEventListener('click', function () {
+    /*
+     * When the customer clicks on the button, redirect
+     * them to Checkout.
+     */
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1J2d1lA9JLcSHwWgfjPNJRrW', quantity: 1}],
+      mode: 'payment',
+      /*
+       * Do not rely on the redirect to the successUrl for fulfilling
+       * purchases, customers may not always reach the success_url after
+       * a successful payment.
+       * Instead use one of the strategies described in
+       * https://stripe.com/docs/payments/checkout/fulfill-orders
+       */
+      successUrl: 'https://stemsmartlabs.com/store/success.html',
+      cancelUrl: 'https://stemsmartlabs.com/store/canceled.html',
+	  billingAddressCollection: 'required',
+	  shippingAddressCollection: {
+		allowedCountries: ['IN'],
+	  },
+    })
+    .then(function (result) {
+      if (result.error) {
+        /*
+         * If `redirectToCheckout` fails due to a browser or network
+         * error, display the localized error message to your customer.
+         */
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+</script>
+
+
+
 </body>
 </html>
+
+
