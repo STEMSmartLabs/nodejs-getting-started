@@ -1,0 +1,17 @@
+<script src="https://unpkg.com/tripetto-runner-foundation"></script>
+<script src="https://unpkg.com/tripetto-runner-chat"></script>
+<script src="https://unpkg.com/tripetto-services"></script>
+<script>
+var tripetto = TripettoServices.init({ token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiRHZBa01vQUNjZGNIL2FpaHpZOFZtMjdMYXpRMEJXa1ptZE0rSTk3V2pJaz0iLCJkZWZpbml0aW9uIjoiMEJ3TWVwKyt1UUJFR2lhVGxiSUc5L1d3TVlXTnVQbmhpY1RuejhSMnpOND0iLCJ0eXBlIjoiY29sbGVjdCJ9.9QKNRGpaccal3D6DMyGUmVBs1-7mnfvOpLthI479EC8" });
+
+TripettoChat.run({
+    element: document.body, /* Or supply your own element here */
+    definition: tripetto.definition,
+    styles: tripetto.styles,
+    l10n: tripetto.l10n,
+    locale: tripetto.locale,
+    translations: tripetto.translations,
+    attachments: tripetto.attachments,
+    onSubmit: tripetto.onSubmit
+});
+</script>
